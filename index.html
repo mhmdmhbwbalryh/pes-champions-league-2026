@@ -6,124 +6,189 @@
     <title>PES CHAMPIONS LEAGUE 2026 MOBILE</title>
     <style>
         body {
-            /* الخلفية الكحلية/الزرقاء من الصورة */
-            background-color: #0409a3;
+            /* الخلفية الكحلية من هوية PES */
+            background: linear-gradient(135deg, #020542 0%, #0409a3 100%);
             color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
-            padding: 20px;
+            padding: 20px 10px;
             margin: 0;
+            min-height: 100vh;
         }
 
+        /* الهيدر والعنوان */
+        .header-box {
+            margin-bottom: 20px;
+        }
         .header-title {
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 900;
             color: #ffffff;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-top: 10px;
-            margin-bottom: 25px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 0 0 10px rgba(0, 210, 235, 0.5);
+            margin: 0;
+        }
+        .sub-title {
+            color: #e2e800;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 5px;
+            letter-spacing: 2px;
         }
 
         .matches-container {
-            max-width: 480px;
+            max-width: 500px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 14px;
         }
 
-        /* كروت المباريات بألوان المجسمات في الصورة */
+        /* كروت المباريات */
         .match-card {
-            background-color: #020557;
-            padding: 14px 18px;
+            background: rgba(2, 5, 87, 0.85);
+            backdrop-filter: blur(5px);
+            padding: 12px 16px;
             border-radius: 12px;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
             display: flex;
             justify-content: space-between;
-            align-content: center;
             align-items: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            border-top: 2px solid rgba(255,255,255,0.1);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
         }
 
-        /* تمييز الحدود بألوان eFootball المستخرجة من الصورة */
+        .player-name {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .player-right { text-align: right; }
+        .player-left { text-align: left; }
+
+        /* منطقة النتيجة والتوقيت */
+        .match-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 10px;
+        }
+        .score {
+            background: #ffffff;
+            color: #0409a3;
+            padding: 3px 14px;
+            border-radius: 20px;
+            font-size: 15px;
+            font-weight: 900;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .time-tag {
+            font-size: 11px;
+            color: #00d2eb;
+            margin-top: 4px;
+            font-weight: normal;
+        }
+
+        /* حدود ملونة لكل مباراة من ألوان الصورة */
         .match-1 { border-right: 6px solid #e5121b; } /* أحمر */
         .match-2 { border-right: 6px solid #e2e800; } /* أصفر */
         .match-3 { border-right: 6px solid #00d2eb; } /* سماوي */
         .match-4 { border-right: 6px solid #ff7b00; } /* برتقالي */
         .match-5 { border-right: 6px solid #00c836; } /* أخضر */
 
-        .score {
-            background-color: #ffffff;
-            color: #0409a3;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 16px;
-            font-weight: 800;
-        }
-
+        /* التذييل السفلي */
         .footer {
-            margin-top: 40px;
-            border-top: 1px solid rgba(255,255,255,0.2);
+            margin-top: 35px;
+            border-top: 1px solid rgba(255,255,255,0.15);
             padding-top: 15px;
-            font-size: 14px;
-            color: #d1d5db;
+            font-size: 13px;
+            color: #cbd5e1;
         }
-
-        .team-tag {
-            color: #e2e800; /* الأصفر الزاهي */
+        .designer-name {
+            color: #ffffff;
             font-weight: bold;
-            font-size: 16px;
-            margin-top: 5px;
-            letter-spacing: 1.5px;
+        }
+        .team-tag {
+            color: #e2e800;
+            font-weight: 900;
+            font-size: 18px;
+            margin-top: 4px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 8px rgba(226, 232, 0, 0.4);
         }
     </style>
 </head>
 <body>
 
-    <div class="header-title">
-        PES CHAMPIONS LEAGUE 2026 MOBILE
+    <div class="header-box">
+        <h1 class="header-title">PES CHAMPIONS LEAGUE 2026 MOBILE</h1>
+        <div class="sub-title">⚔️ مـبـاريـات الـيـوم ⚔️</div>
     </div>
 
     <div class="matches-container">
+        
+        <!-- المباراة الأولى -->
         <div class="match-card match-1">
-            <span>الفريق الأول</span>
-            <span class="score">0 - 0</span>
-            <span>الفريق الثاني</span>
+            <span class="player-name player-right">قصي اسماعيل</span>
+            <div class="match-info">
+                <span class="score">0 - 0</span>
+                <span class="time-tag">⏱️ 9:00 PM</span>
+            </div>
+            <span class="player-name player-left">اسامة بلولة</span>
         </div>
         
+        <!-- المباراة الثانية -->
         <div class="match-card match-2">
-            <span>الفريق الثالث</span>
-            <span class="score">0 - 0</span>
-            <span>الفريق الرابع</span>
+            <span class="player-name player-right">اسماعيل حسين</span>
+            <div class="match-info">
+                <span class="score">0 - 0</span>
+                <span class="time-tag">⏱️ 9:00 PM</span>
+            </div>
+            <span class="player-name player-left">محمد ابوعاقلة</span>
         </div>
         
+        <!-- المباراة الثالثة -->
         <div class="match-card match-3">
-            <span>الفريق الخامس</span>
-            <span class="score">0 - 0</span>
-            <span>الفريق السادس</span>
+            <span class="player-name player-right">احمد عبدالكريم</span>
+            <div class="match-info">
+                <span class="score">0 - 0</span>
+                <span class="time-tag">⏱️ 9:00 PM</span>
+            </div>
+            <span class="player-name player-left">عادل يوسف</span>
         </div>
         
+        <!-- المباراة الرابعة -->
         <div class="match-card match-4">
-            <span>الفريق السابع</span>
-            <span class="score">0 - 0</span>
-            <span>الفريق الثامن</span>
+            <span class="player-name player-right">محمد محبوب الريح</span>
+            <div class="match-info">
+                <span class="score">0 - 0</span>
+                <span class="time-tag">⏱️ 9:00 PM</span>
+            </div>
+            <span class="player-name player-left">مزمل عبدالحفيظ</span>
         </div>
         
+        <!-- المباراة الخامسة -->
         <div class="match-card match-5">
-            <span>الفريق التاسع</span>
-            <span class="score">0 - 0</span>
-            <span>الفريق العاشر</span>
+            <span class="player-name player-right">شوقي عبدالكريم</span>
+            <div class="match-info">
+                <span class="score">0 - 0</span>
+                <span class="time-tag">⏱️ 9:00 PM</span>
+            </div>
+            <span class="player-name player-left">محمد محبوب ابوعاقلة</span>
         </div>
+
     </div>
 
     <div class="footer">
-        <p>صمم بواسطة muhammed mhaboub alryh</p>
-        <p class="team-tag">TARGARYEN FC</p>
+        <p style="margin: 0;">صمم بواسطة: <span class="designer-name">muhammed mhaboub alryh</span></p>
+        <div class="team-tag">🐉 TARGARYEN FC 🐉</div>
     </div>
 
 </body>
 </html>
+
