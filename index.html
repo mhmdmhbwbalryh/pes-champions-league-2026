@@ -1,51 +1,84 @@
-here<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PES CHAMPIONS LEAGUE 2026 MOBILE</title>
     <style>
         body {
-            background-color: #121212;
+            /* الخلفية الكحلية/الزرقاء من الصورة */
+            background-color: #0409a3;
             color: #ffffff;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
             padding: 20px;
+            margin: 0;
         }
+
         .header-title {
-            font-size: 24px;
-            font-weight: bold;
-            color: #e50914;
+            font-size: 26px;
+            font-weight: 900;
+            color: #ffffff;
             text-transform: uppercase;
-            border-bottom: 2px solid #333;
-            padding-bottom: 15px;
-            margin-bottom: 30px;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
+
         .matches-container {
-            max-width: 500px;
+            max-width: 480px;
             margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
+
+        /* كروت المباريات بألوان المجسمات في الصورة */
         .match-card {
-            background-color: #1f1f1f;
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 8px;
+            background-color: #020557;
+            padding: 14px 18px;
+            border-radius: 12px;
             font-size: 18px;
             font-weight: bold;
             display: flex;
             justify-content: space-between;
-            border-right: 4px solid #e50914;
+            align-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border-top: 2px solid rgba(255,255,255,0.1);
         }
+
+        /* تمييز الحدود بألوان eFootball المستخرجة من الصورة */
+        .match-1 { border-right: 6px solid #e5121b; } /* أحمر */
+        .match-2 { border-right: 6px solid #e2e800; } /* أصفر */
+        .match-3 { border-right: 6px solid #00d2eb; } /* سماوي */
+        .match-4 { border-right: 6px solid #ff7b00; } /* برتقالي */
+        .match-5 { border-right: 6px solid #00c836; } /* أخضر */
+
+        .score {
+            background-color: #ffffff;
+            color: #0409a3;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 800;
+        }
+
         .footer {
             margin-top: 40px;
-            border-top: 1px solid #333;
+            border-top: 1px solid rgba(255,255,255,0.2);
             padding-top: 15px;
             font-size: 14px;
-            color: #888;
+            color: #d1d5db;
         }
+
         .team-tag {
-            color: #ffbd59;
+            color: #e2e800; /* الأصفر الزاهي */
             font-weight: bold;
+            font-size: 16px;
             margin-top: 5px;
+            letter-spacing: 1.5px;
         }
     </style>
 </head>
@@ -56,30 +89,34 @@ here<!DOCTYPE html>
     </div>
 
     <div class="matches-container">
-        <div class="match-card">
-            <span>الفريق A</span>
-            <span>2 - 1</span>
-            <span>الفريق B</span>
+        <div class="match-card match-1">
+            <span>الفريق الأول</span>
+            <span class="score">0 - 0</span>
+            <span>الفريق الثاني</span>
         </div>
-        <div class="match-card">
-            <span>الفريق C</span>
-            <span>0 - 3</span>
-            <span>الفريق D</span>
+        
+        <div class="match-card match-2">
+            <span>الفريق الثالث</span>
+            <span class="score">0 - 0</span>
+            <span>الفريق الرابع</span>
         </div>
-        <div class="match-card">
-            <span>الفريق E</span>
-            <span>1 - 1</span>
-            <span>الفريق F</span>
+        
+        <div class="match-card match-3">
+            <span>الفريق الخامس</span>
+            <span class="score">0 - 0</span>
+            <span>الفريق السادس</span>
         </div>
-        <div class="match-card">
-            <span>الفريق G</span>
-            <span>4 - 2</span>
-            <span>الفريق H</span>
+        
+        <div class="match-card match-4">
+            <span>الفريق السابع</span>
+            <span class="score">0 - 0</span>
+            <span>الفريق الثامن</span>
         </div>
-        <div class="match-card">
-            <span>الفريق I</span>
-            <span>0 - 0</span>
-            <span>الفريق J</span>
+        
+        <div class="match-card match-5">
+            <span>الفريق التاسع</span>
+            <span class="score">0 - 0</span>
+            <span>الفريق العاشر</span>
         </div>
     </div>
 
