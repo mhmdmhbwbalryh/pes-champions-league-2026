@@ -12,7 +12,7 @@
         }
 
         body {
-            /* مزيج ألوان مقتبس من خلفية eFootball (أزرق ملكي، أحمر، أصفر، أخضر، برتقالي، سماوي) */
+            /* مزيج ألوان مقتبس من خلفية eFootball */
             background: 
                 radial-gradient(circle at 10% 20%, rgba(229, 18, 27, 0.25) 0%, transparent 40%),
                 radial-gradient(circle at 90% 10%, rgba(0, 210, 235, 0.25) 0%, transparent 40%),
@@ -41,22 +41,28 @@
             align-items: center;
         }
 
-        /* شعار eFootball / PES الرسمي */
         .pes-logo {
-            width: 55px;
-            height: 55px;
+            width: 60px;
+            height: 60px;
             background: #ffffff;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 0 25px rgba(0, 210, 235, 0.5);
+            box-shadow: 0 0 20px rgba(0, 210, 235, 0.8), 0 0 35px rgba(226, 232, 0, 0.6);
             margin-bottom: 12px;
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 15px rgba(0, 210, 235, 0.6); }
+            50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(226, 232, 0, 0.9); }
+            100% { transform: scale(1); box-shadow: 0 0 15px rgba(0, 210, 235, 0.6); }
         }
 
         .pes-logo svg {
-            width: 35px;
-            height: 35px;
+            width: 38px;
+            height: 38px;
             fill: #0409a3;
         }
 
@@ -66,29 +72,29 @@
             color: #ffffff;
             text-transform: uppercase;
             letter-spacing: 1px;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.7);
         }
 
         .sub-title {
             color: #e2e800;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: bold;
             margin-top: 6px;
             letter-spacing: 1.5px;
-            text-shadow: 0 0 10px rgba(226, 232, 0, 0.4);
+            text-shadow: 0 0 12px rgba(226, 232, 0, 0.6);
         }
 
         /* العناوين الفرعية للأقسام */
         .section-header {
-            font-size: 18px;
+            font-size: 19px;
             font-weight: bold;
-            margin: 25px 0 12px 0;
+            margin: 25px 0 14px 0;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             color: #00d2eb;
-            text-shadow: 0 0 8px rgba(0, 210, 235, 0.4);
+            text-shadow: 0 0 8px rgba(0, 210, 235, 0.5);
         }
 
         /* كروت المباريات */
@@ -146,7 +152,7 @@
             font-weight: normal;
         }
 
-        /* ألوان حدود المباريات المأخوذة من المجسمات */
+        /* ألوان حدود المباريات المأخوذة من الصورة */
         .match-1 { border-right: 5px solid #e5121b; } /* أحمر */
         .match-2 { border-right: 5px solid #e2e800; } /* أصفر */
         .match-3 { border-right: 5px solid #00d2eb; } /* سماوي */
@@ -209,7 +215,7 @@
         .pts-col {
             font-weight: 900;
             color: #00c836;
-            background: rgba(0, 200, 54, 0.1);
+            background: rgba(0, 200, 54, 0.15);
             border-radius: 4px;
         }
 
@@ -249,12 +255,12 @@
                 </svg>
             </div>
             <h1 class="header-title">PES CHAMPIONS LEAGUE 2026 MOBILE</h1>
-            <div class="sub-title">⚔️ دوري الأابطال والفرق ⚔️</div>
+            <div class="sub-title">✨ أهم شيء الاستمتاع ✨</div>
         </div>
 
         <!-- قسم مباريات اليوم -->
         <div class="section-header">
-            <span>📅 مباريات اليوم (الساعة 9:00 مساءً)</span>
+            <span>⚽ مباريات اليوم ⚽</span>
         </div>
 
         <div class="matches-container">
@@ -306,7 +312,7 @@
 
         <!-- قسم جدول الترتيب -->
         <div class="section-header">
-            <span>🏆 جدول ترتيب الدوري</span>
+            <span>🏆 جدول ترتيب الدوري 🏆</span>
         </div>
 
         <div class="table-container">
