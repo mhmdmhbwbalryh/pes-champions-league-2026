@@ -12,7 +12,6 @@
         }
 
         body {
-            /* مزيج ألوان مقتبس من خلفية eFootball */
             background: 
                 radial-gradient(circle at 10% 20%, rgba(229, 18, 27, 0.25) 0%, transparent 40%),
                 radial-gradient(circle at 90% 10%, rgba(0, 210, 235, 0.25) 0%, transparent 40%),
@@ -84,11 +83,38 @@
             text-shadow: 0 0 12px rgba(226, 232, 0, 0.6);
         }
 
+        /* زر التنقل لمباريات الأمس */
+        .history-nav {
+            margin: 15px 0;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .history-btn {
+            background: rgba(0, 210, 235, 0.2);
+            border: 1px solid #00d2eb;
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .history-btn:hover {
+            background: rgba(0, 210, 235, 0.4);
+            transform: translateX(-3px);
+        }
+
         /* العناوين الفرعية للأقسام */
         .section-header {
             font-size: 19px;
             font-weight: bold;
-            margin: 25px 0 14px 0;
+            margin: 20px 0 14px 0;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -145,6 +171,13 @@
             box-shadow: 0 2px 6px rgba(0,0,0,0.3);
         }
 
+        .time-tag {
+            font-size: 11px;
+            color: #e2e800;
+            margin-top: 3px;
+            font-weight: normal;
+        }
+
         .status-tag {
             font-size: 11px;
             color: #00c836;
@@ -152,12 +185,12 @@
             font-weight: bold;
         }
 
-        /* ألوان حدود المباريات المأخوذة من الصورة */
-        .match-1 { border-right: 5px solid #e5121b; } /* أحمر */
-        .match-2 { border-right: 5px solid #e2e800; } /* أصفر */
-        .match-3 { border-right: 5px solid #00d2eb; } /* سماوي */
-        .match-4 { border-right: 5px solid #ff7b00; } /* برتقالي */
-        .match-5 { border-right: 5px solid #00c836; } /* أخضر */
+        /* ألوان حدود المباريات */
+        .match-1 { border-right: 5px solid #e5121b; }
+        .match-2 { border-right: 5px solid #e2e800; }
+        .match-3 { border-right: 5px solid #00d2eb; }
+        .match-4 { border-right: 5px solid #ff7b00; }
+        .match-5 { border-right: 5px solid #00c836; }
 
         /* جدول ترتيب الفرق */
         .table-container {
@@ -219,6 +252,10 @@
             border-radius: 4px;
         }
 
+        .hidden {
+            display: none;
+        }
+
         /* التذييل */
         .footer {
             margin-top: 35px;
@@ -258,55 +295,119 @@
             <div class="sub-title">✨ أهم شيء الاستمتاع ✨</div>
         </div>
 
-        <!-- قسم نتائج اليوم -->
-        <div class="section-header">
-            <span>⚽ نتائج مباريات اليوم ⚽</span>
+        <!-- زر الانتقال بين المباريات -->
+        <div class="history-nav">
+            <button class="history-btn" id="toggleBtn" onclick="toggleMatches()">
+                <span>مباريات الأمس</span>
+                <span id="arrowIcon">👈</span>
+            </button>
         </div>
 
-        <div class="matches-container">
-            <div class="match-card match-1">
-                <span class="player-name player-right">احمد عبدالكريم</span>
-                <div class="match-info">
-                    <span class="score">5 - 2</span>
-                    <span class="status-tag">انتهت</span>
-                </div>
-                <span class="player-name player-left">قصي اسماعيل</span>
+        <!-- قسم مباريات اليوم (المواجهات الجديدة) -->
+        <div id="todaySection">
+            <div class="section-header">
+                <span>⚽ مباريات اليوم ⚽</span>
             </div>
-            
-            <div class="match-card match-2">
-                <span class="player-name player-right">اسماعيل حسين</span>
-                <div class="match-info">
-                    <span class="score">5 - 7</span>
-                    <span class="status-tag">انتهت</span>
+
+            <div class="matches-container">
+                <div class="match-card match-1">
+                    <span class="player-name player-right">مزمل عبدالحفيظ</span>
+                    <div class="match-info">
+                        <span class="score">0 - 0</span>
+                        <span class="time-tag">⏱️ 9:00 PM</span>
+                    </div>
+                    <span class="player-name player-left">محمد محبوب ابوعاقلة</span>
                 </div>
-                <span class="player-name player-left">محمد محبوب الريح</span>
+                
+                <div class="match-card match-2">
+                    <span class="player-name player-right">اسماعيل حسين</span>
+                    <div class="match-info">
+                        <span class="score">0 - 0</span>
+                        <span class="time-tag">⏱️ 9:00 PM</span>
+                    </div>
+                    <span class="player-name player-left">شوقي عبدالكريم</span>
+                </div>
+                
+                <div class="match-card match-3">
+                    <span class="player-name player-right">اسامة بلولة</span>
+                    <div class="match-info">
+                        <span class="score">0 - 0</span>
+                        <span class="time-tag">⏱️ 9:00 PM</span>
+                    </div>
+                    <span class="player-name player-left">احمد عبدالكريم</span>
+                </div>
+                
+                <div class="match-card match-4">
+                    <span class="player-name player-right">محمد محبوب الريح</span>
+                    <div class="match-info">
+                        <span class="score">0 - 0</span>
+                        <span class="time-tag">⏱️ 9:00 PM</span>
+                    </div>
+                    <span class="player-name player-left">قصي اسماعيل</span>
+                </div>
+                
+                <div class="match-card match-5">
+                    <span class="player-name player-right">عادل يوسف</span>
+                    <div class="match-info">
+                        <span class="score">0 - 0</span>
+                        <span class="time-tag">⏱️ 9:00 PM</span>
+                    </div>
+                    <span class="player-name player-left">محمد ابوعاقلة</span>
+                </div>
             </div>
-            
-            <div class="match-card match-3">
-                <span class="player-name player-right">عادل يوسف</span>
-                <div class="match-info">
-                    <span class="score">4 - 1</span>
-                    <span class="status-tag">انتهت</span>
-                </div>
-                <span class="player-name player-left">مزمل عبدالحفيظ</span>
+        </div>
+
+        <!-- قسم نتائج الأمس (مخفي افتراضياً ويظهر عند الضغط) -->
+        <div id="yesterdaySection" class="hidden">
+            <div class="section-header">
+                <span>🔙 نتائج مباريات الأمس 🔙</span>
             </div>
-            
-            <div class="match-card match-4">
-                <span class="player-name player-right">شوقي عبدالكريم</span>
-                <div class="match-info">
-                    <span class="score">2 - 5</span>
-                    <span class="status-tag">انتهت</span>
+
+            <div class="matches-container">
+                <div class="match-card match-1">
+                    <span class="player-name player-right">احمد عبدالكريم</span>
+                    <div class="match-info">
+                        <span class="score">5 - 2</span>
+                        <span class="status-tag">انتهت</span>
+                    </div>
+                    <span class="player-name player-left">قصي اسماعيل</span>
                 </div>
-                <span class="player-name player-left">محمد محبوب ابوعاقلة</span>
-            </div>
-            
-            <div class="match-card match-5">
-                <span class="player-name player-right">محمد ابوعاقلة</span>
-                <div class="match-info">
-                    <span class="score">4 - 6</span>
-                    <span class="status-tag">انتهت</span>
+                
+                <div class="match-card match-2">
+                    <span class="player-name player-right">اسماعيل حسين</span>
+                    <div class="match-info">
+                        <span class="score">5 - 7</span>
+                        <span class="status-tag">انتهت</span>
+                    </div>
+                    <span class="player-name player-left">محمد محبوب الريح</span>
                 </div>
-                <span class="player-name player-left">اسامة بلولة</span>
+                
+                <div class="match-card match-3">
+                    <span class="player-name player-right">عادل يوسف</span>
+                    <div class="match-info">
+                        <span class="score">4 - 1</span>
+                        <span class="status-tag">انتهت</span>
+                    </div>
+                    <span class="player-name player-left">مزمل عبدالحفيظ</span>
+                </div>
+                
+                <div class="match-card match-4">
+                    <span class="player-name player-right">شوقي عبدالكريم</span>
+                    <div class="match-info">
+                        <span class="score">2 - 5</span>
+                        <span class="status-tag">انتهت</span>
+                    </div>
+                    <span class="player-name player-left">محمد محبوب ابوعاقلة</span>
+                </div>
+                
+                <div class="match-card match-5">
+                    <span class="player-name player-right">محمد ابوعاقلة</span>
+                    <div class="match-info">
+                        <span class="score">4 - 6</span>
+                        <span class="status-tag">انتهت</span>
+                    </div>
+                    <span class="player-name player-left">اسامة بلولة</span>
+                </div>
             </div>
         </div>
 
@@ -431,6 +532,24 @@
 
     </div>
 
+    <!-- كود الجافاسكريبت للتبديل بين اليوم والأمس -->
+    <script>
+        function toggleMatches() {
+            var today = document.getElementById("todaySection");
+            var yesterday = document.getElementById("yesterdaySection");
+            var btnText = document.getElementById("toggleBtn");
+            
+            if (yesterday.classList.contains("hidden")) {
+                yesterday.classList.remove("hidden");
+                today.classList.add("hidden");
+                btnText.innerHTML = '<span>مباريات اليوم</span> 👈';
+            } else {
+                today.classList.remove("hidden");
+                yesterday.classList.add("hidden");
+                btnText.innerHTML = '<span>مباريات الأمس</span> 👈';
+            }
+        }
+    </script>
+
 </body>
 </html>
-
