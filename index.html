@@ -178,6 +178,13 @@
             font-weight: bold;
         }
 
+        .postponed-tag {
+            font-size: 11px;
+            color: #ff7b00;
+            margin-top: 3px;
+            font-weight: bold;
+        }
+
         /* ألوان حدود المباريات */
         .match-1 { border-right: 5px solid #e5121b; }
         .match-2 { border-right: 5px solid #e2e800; }
@@ -291,7 +298,7 @@
         <!-- زر الانتقال بين المباريات -->
         <div class="history-nav">
             <button class="history-btn" id="toggleBtn" onclick="toggleMatches()">
-                <span>مباريات الأمس</span>
+                <span>مباريات الجولة السابقة</span>
                 <span id="arrowIcon">👈</span>
             </button>
         </div>
@@ -300,6 +307,60 @@
         <div id="todaySection">
             <div class="section-header">
                 <span>⚽ نتائج مباريات اليوم ⚽</span>
+            </div>
+
+            <div class="matches-container">
+                <div class="match-card match-1">
+                    <span class="player-name player-right">شوقي عبدالكريم</span>
+                    <div class="match-info">
+                        <span class="score">- - -</span>
+                        <span class="postponed-tag">مؤجلة ⏳</span>
+                    </div>
+                    <span class="player-name player-left">أحمد عبدالكريم</span>
+                </div>
+
+                <div class="match-card match-2">
+                    <span class="player-name player-right">أسامة بلولة</span>
+                    <div class="match-info">
+                        <span class="score">1 - 4</span>
+                        <span class="status-tag">انتهت</span>
+                    </div>
+                    <span class="player-name player-left">محمد محبوب الريح</span>
+                </div>
+
+                <div class="match-card match-3">
+                    <span class="player-name player-right">مزمل عبدالحفيظ</span>
+                    <div class="match-info">
+                        <span class="score">- - -</span>
+                        <span class="postponed-tag">مؤجلة ⏳</span>
+                    </div>
+                    <span class="player-name player-left">قصي إسماعيل</span>
+                </div>
+                
+                <div class="match-card match-4">
+                    <span class="player-name player-right">محمد محبوب أبوعاقلة</span>
+                    <div class="match-info">
+                        <span class="score">2 - 3</span>
+                        <span class="status-tag">انتهت</span>
+                    </div>
+                    <span class="player-name player-left">عادل يوسف</span>
+                </div>
+
+                <div class="match-card match-5">
+                    <span class="player-name player-right">إسماعيل حسين</span>
+                    <div class="match-info">
+                        <span class="score">5 - 4</span>
+                        <span class="status-tag">انتهت</span>
+                    </div>
+                    <span class="player-name player-left">محمد أبوعاقلة</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم نتائج الجولة السابقة (مخفي افتراضياً ويظهر عند الضغط) -->
+        <div id="yesterdaySection" class="hidden">
+            <div class="section-header">
+                <span>🔙 نتائج الجولة السابقة 🔙</span>
             </div>
 
             <div class="matches-container">
@@ -350,60 +411,6 @@
             </div>
         </div>
 
-        <!-- قسم نتائج الأمس (مخفي افتراضياً ويظهر عند الضغط) -->
-        <div id="yesterdaySection" class="hidden">
-            <div class="section-header">
-                <span>🔙 نتائج مباريات الأمس 🔙</span>
-            </div>
-
-            <div class="matches-container">
-                <div class="match-card match-1">
-                    <span class="player-name player-right">احمد عبدالكريم</span>
-                    <div class="match-info">
-                        <span class="score">5 - 2</span>
-                        <span class="status-tag">انتهت</span>
-                    </div>
-                    <span class="player-name player-left">قصي اسماعيل</span>
-                </div>
-                
-                <div class="match-card match-2">
-                    <span class="player-name player-right">اسماعيل حسين</span>
-                    <div class="match-info">
-                        <span class="score">5 - 7</span>
-                        <span class="status-tag">انتهت</span>
-                    </div>
-                    <span class="player-name player-left">محمد محبوب الريح</span>
-                </div>
-                
-                <div class="match-card match-3">
-                    <span class="player-name player-right">عادل يوسف</span>
-                    <div class="match-info">
-                        <span class="score">4 - 1</span>
-                        <span class="status-tag">انتهت</span>
-                    </div>
-                    <span class="player-name player-left">مزمل عبدالحفيظ</span>
-                </div>
-                
-                <div class="match-card match-4">
-                    <span class="player-name player-right">شوقي عبدالكريم</span>
-                    <div class="match-info">
-                        <span class="score">2 - 5</span>
-                        <span class="status-tag">انتهت</span>
-                    </div>
-                    <span class="player-name player-left">محمد محبوب ابوعاقلة</span>
-                </div>
-                
-                <div class="match-card match-5">
-                    <span class="player-name player-right">محمد ابوعاقلة</span>
-                    <div class="match-info">
-                        <span class="score">4 - 6</span>
-                        <span class="status-tag">انتهت</span>
-                    </div>
-                    <span class="player-name player-left">اسامة بلولة</span>
-                </div>
-            </div>
-        </div>
-
         <!-- قسم جدول الترتيب -->
         <div class="section-header">
             <span>🏆 جدول ترتيب الدوري 🏆</span>
@@ -425,38 +432,38 @@
                 <tbody>
                     <tr>
                         <td class="rank">1</td>
-                        <td class="team-name">محمد محبوب الريح</td>
-                        <td>2</td>
-                        <td>12</td>
-                        <td>7</td>
-                        <td>+5</td>
-                        <td class="pts-col">6</td>
+                        <td class="team-name">عادل يوسف</td>
+                        <td>3</td>
+                        <td>10</td>
+                        <td>4</td>
+                        <td>+6</td>
+                        <td class="pts-col">9</td>
                     </tr>
                     <tr>
                         <td class="rank">2</td>
-                        <td class="team-name">عادل يوسف</td>
-                        <td>2</td>
-                        <td>7</td>
-                        <td>2</td>
-                        <td>+5</td>
-                        <td class="pts-col">6</td>
+                        <td class="team-name">محمد محبوب الريح</td>
+                        <td>3</td>
+                        <td>16</td>
+                        <td>8</td>
+                        <td>+8</td>
+                        <td class="pts-col">9</td>
                     </tr>
                     <tr>
                         <td class="rank">3</td>
                         <td class="team-name">محمد محبوب ابوعاقلة</td>
-                        <td>2</td>
-                        <td>10</td>
-                        <td>6</td>
-                        <td>+4</td>
+                        <td>3</td>
+                        <td>12</td>
+                        <td>9</td>
+                        <td>+3</td>
                         <td class="pts-col">6</td>
                     </tr>
                     <tr>
                         <td class="rank">4</td>
                         <td class="team-name">اسامة بلولة</td>
-                        <td>2</td>
+                        <td>3</td>
+                        <td>11</td>
                         <td>10</td>
-                        <td>6</td>
-                        <td>+4</td>
+                        <td>+1</td>
                         <td class="pts-col">6</td>
                     </tr>
                     <tr>
@@ -470,6 +477,15 @@
                     </tr>
                     <tr>
                         <td class="rank">6</td>
+                        <td class="team-name">اسماعيل حسين</td>
+                        <td>3</td>
+                        <td>11</td>
+                        <td>13</td>
+                        <td>-2</td>
+                        <td class="pts-col">3</td>
+                    </tr>
+                    <tr>
+                        <td class="rank">7</td>
                         <td class="team-name">شوقي عبدالكريم</td>
                         <td>2</td>
                         <td>4</td>
@@ -478,21 +494,12 @@
                         <td class="pts-col">3</td>
                     </tr>
                     <tr>
-                        <td class="rank">7</td>
-                        <td class="team-name">اسماعيل حسين</td>
-                        <td>2</td>
-                        <td>6</td>
-                        <td>9</td>
-                        <td>-3</td>
-                        <td class="pts-col">0</td>
-                    </tr>
-                    <tr>
                         <td class="rank">8</td>
                         <td class="team-name">محمد ابوعاقلة</td>
-                        <td>2</td>
-                        <td>5</td>
+                        <td>3</td>
                         <td>9</td>
-                        <td>-4</td>
+                        <td>14</td>
+                        <td>-5</td>
                         <td class="pts-col">0</td>
                     </tr>
                     <tr>
@@ -525,7 +532,7 @@
 
     </div>
 
-    <!-- كود الجافاسكريبت للتبديل بين اليوم والأمس -->
+    <!-- كود الجافاسكريبت للتبديل بين الجولات -->
     <script>
         function toggleMatches() {
             var today = document.getElementById("todaySection");
@@ -539,10 +546,11 @@
             } else {
                 today.classList.remove("hidden");
                 yesterday.classList.add("hidden");
-                btnText.innerHTML = '<span>مباريات الأمس</span> 👈';
+                btnText.innerHTML = '<span>مباريات الجولة السابقة</span> 👈';
             }
         }
     </script>
 
 </body>
 </html>
+
