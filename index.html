@@ -83,31 +83,32 @@
             text-shadow: 0 0 12px rgba(226, 232, 0, 0.6);
         }
 
-        /* زر التنقل لمباريات الأمس */
+        /* زر التنقل بين الجولات الثلاث */
         .history-nav {
             margin: 15px 0;
             display: flex;
-            justify-content: flex-end;
+            justify-content: center;
         }
 
         .history-btn {
             background: rgba(0, 210, 235, 0.2);
             border: 1px solid #00d2eb;
             color: #ffffff;
-            padding: 8px 16px;
+            padding: 10px 20px;
             border-radius: 20px;
             cursor: pointer;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: bold;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 210, 235, 0.3);
         }
 
         .history-btn:hover {
             background: rgba(0, 210, 235, 0.4);
-            transform: translateX(-3px);
+            transform: scale(1.03);
         }
 
         /* العناوين الفرعية للأقسام */
@@ -295,18 +296,17 @@
             <div class="sub-title">✨ أهم شيء الاستمتاع ✨</div>
         </div>
 
-        <!-- زر الانتقال بين المباريات -->
+        <!-- زر التنقل بين الجولات الثلاث -->
         <div class="history-nav">
-            <button class="history-btn" id="toggleBtn" onclick="toggleMatches()">
-                <span>مباريات الجولة السابقة</span>
-                <span id="arrowIcon">👈</span>
+            <button class="history-btn" onclick="nextRound()">
+                <span id="btnText">عرض الجولة 1 👈</span>
             </button>
         </div>
 
-        <!-- قسم نتائج مباريات اليوم -->
-        <div id="todaySection">
+        <!-- قسم نتائج الجولة الثالثة (الحالية) -->
+        <div id="round3Section">
             <div class="section-header">
-                <span>⚽ نتائج مباريات اليوم ⚽</span>
+                <span>⚽ نتائج الجولة 3 (اليوم) ⚽</span>
             </div>
 
             <div class="matches-container">
@@ -357,10 +357,10 @@
             </div>
         </div>
 
-        <!-- قسم نتائج الجولة السابقة (مخفي افتراضياً ويظهر عند الضغط) -->
-        <div id="yesterdaySection" class="hidden">
+        <!-- قسم نتائج الجولة الثانية -->
+        <div id="round2Section" class="hidden">
             <div class="section-header">
-                <span>🔙 نتائج الجولة السابقة 🔙</span>
+                <span>🔙 نتائج الجولة 2 🔙</span>
             </div>
 
             <div class="matches-container">
@@ -411,7 +411,61 @@
             </div>
         </div>
 
-        <!-- قسم جدول الترتيب -->
+        <!-- قسم نتائج الجولة الأولى -->
+        <div id="round1Section" class="hidden">
+            <div class="section-header">
+                <span>🔙 نتائج الجولة 1 🔙</span>
+            </div>
+
+            <div class="matches-container">
+                <div class="match-card match-1">
+                    <span class="player-name player-right">احمد عبدالكريم</span>
+                    <div class="match-info">
+                        <span class="score">5 - 2</span>
+                        <span class="status-tag">انتهت</span>
+                    </div>
+                    <span class="player-name player-left">قصي اسماعيل</span>
+                </div>
+                
+                <div class="match-card match-2">
+                    <span class="player-name player-right">اسماعيل حسين</span>
+                    <div class="match-info">
+                        <span class="score">5 - 7</span>
+                        <span class="status-tag">انتهت</span>
+                    </div>
+                    <span class="player-name player-left">محمد محبوب الريح</span>
+                </div>
+                
+                <div class="match-card match-3">
+                    <span class="player-name player-right">عادل يوسف</span>
+                    <div class="match-info">
+                        <span class="score">4 - 1</span>
+                        <span class="status-tag">انتهت</span>
+                    </div>
+                    <span class="player-name player-left">مزمل عبدالحفيظ</span>
+                </div>
+                
+                <div class="match-card match-4">
+                    <span class="player-name player-right">شوقي عبدالكريم</span>
+                    <div class="match-info">
+                        <span class="score">2 - 5</span>
+                        <span class="status-tag">انتهت</span>
+                    </div>
+                    <span class="player-name player-left">محمد محبوب ابوعاقلة</span>
+                </div>
+                
+                <div class="match-card match-5">
+                    <span class="player-name player-right">محمد ابوعاقلة</span>
+                    <div class="match-info">
+                        <span class="score">4 - 6</span>
+                        <span class="status-tag">انتهت</span>
+                    </div>
+                    <span class="player-name player-left">اسامة بلولة</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم جدول الترتيب المعدل -->
         <div class="section-header">
             <span>🏆 جدول ترتيب الدوري 🏆</span>
         </div>
@@ -432,20 +486,20 @@
                 <tbody>
                     <tr>
                         <td class="rank">1</td>
-                        <td class="team-name">عادل يوسف</td>
-                        <td>3</td>
-                        <td>10</td>
-                        <td>4</td>
-                        <td>+6</td>
-                        <td class="pts-col">9</td>
-                    </tr>
-                    <tr>
-                        <td class="rank">2</td>
                         <td class="team-name">محمد محبوب الريح</td>
                         <td>3</td>
                         <td>16</td>
                         <td>8</td>
                         <td>+8</td>
+                        <td class="pts-col">9</td>
+                    </tr>
+                    <tr>
+                        <td class="rank">2</td>
+                        <td class="team-name">عادل يوسف</td>
+                        <td>3</td>
+                        <td>10</td>
+                        <td>4</td>
+                        <td>+6</td>
                         <td class="pts-col">9</td>
                     </tr>
                     <tr>
@@ -495,20 +549,20 @@
                     </tr>
                     <tr>
                         <td class="rank">8</td>
-                        <td class="team-name">محمد ابوعاقلة</td>
-                        <td>3</td>
-                        <td>9</td>
-                        <td>14</td>
-                        <td>-5</td>
-                        <td class="pts-col">0</td>
-                    </tr>
-                    <tr>
-                        <td class="rank">9</td>
                         <td class="team-name">مزمل عبدالحفيظ</td>
                         <td>2</td>
                         <td>5</td>
                         <td>9</td>
                         <td>-4</td>
+                        <td class="pts-col">0</td>
+                    </tr>
+                    <tr>
+                        <td class="rank">9</td>
+                        <td class="team-name">محمد ابوعاقلة</td>
+                        <td>3</td>
+                        <td>9</td>
+                        <td>14</td>
+                        <td>-5</td>
                         <td class="pts-col">0</td>
                     </tr>
                     <tr>
@@ -532,21 +586,34 @@
 
     </div>
 
-    <!-- كود الجافاسكريبت للتبديل بين الجولات -->
+    <!-- كود الجافاسكريبت للتبديل الدائري بين الجولات الثلاث -->
     <script>
-        function toggleMatches() {
-            var today = document.getElementById("todaySection");
-            var yesterday = document.getElementById("yesterdaySection");
-            var btnText = document.getElementById("toggleBtn");
-            
-            if (yesterday.classList.contains("hidden")) {
-                yesterday.classList.remove("hidden");
-                today.classList.add("hidden");
-                btnText.innerHTML = '<span>مباريات اليوم</span> 👈';
-            } else {
-                today.classList.remove("hidden");
-                yesterday.classList.add("hidden");
-                btnText.innerHTML = '<span>مباريات الجولة السابقة</span> 👈';
+        var currentRound = 3;
+
+        function nextRound() {
+            var r1 = document.getElementById("round1Section");
+            var r2 = document.getElementById("round2Section");
+            var r3 = document.getElementById("round3Section");
+            var btnText = document.getElementById("btnText");
+
+            // إخفاء الكل
+            r1.classList.add("hidden");
+            r2.classList.add("hidden");
+            r3.classList.add("hidden");
+
+            // التبديل الدوري
+            if (currentRound === 3) {
+                r2.classList.remove("hidden");
+                btnText.innerHTML = "عرض الجولة 1 👈";
+                currentRound = 2;
+            } else if (currentRound === 2) {
+                r1.classList.remove("hidden");
+                btnText.innerHTML = "عرض الجولة 3 (اليوم) 👈";
+                currentRound = 1;
+            } else if (currentRound === 1) {
+                r3.classList.remove("hidden");
+                btnText.innerHTML = "عرض الجولة 2 👈";
+                currentRound = 3;
             }
         }
     </script>
