@@ -34,7 +34,7 @@
 
         /* الهيدر وشعار PES */
         .header-box {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -83,45 +83,51 @@
             text-shadow: 0 0 12px rgba(226, 232, 0, 0.6);
         }
 
-        /* زر التنقل بين الجولات الثلاث */
-        .history-nav {
-            margin: 15px 0;
+        /* شريط أسهم التنقل بين الجولات فوق اليمين واليسار */
+        .rounds-navigation {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(2, 5, 87, 0.6);
+            backdrop-filter: blur(8px);
+            padding: 8px 12px;
+            border-radius: 30px;
+            margin: 15px 0;
+            border: 1px solid rgba(0, 210, 235, 0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
-        .history-btn {
+        .nav-arrow-btn {
             background: rgba(0, 210, 235, 0.2);
             border: 1px solid #00d2eb;
             color: #ffffff;
-            padding: 10px 20px;
+            padding: 6px 14px;
             border-radius: 20px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: bold;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(0, 210, 235, 0.3);
         }
 
-        .history-btn:hover {
-            background: rgba(0, 210, 235, 0.4);
-            transform: scale(1.03);
+        .nav-arrow-btn:hover:not(:disabled) {
+            background: rgba(0, 210, 235, 0.5);
+            transform: scale(1.05);
         }
 
-        /* العناوين الفرعية للأقسام */
-        .section-header {
-            font-size: 19px;
-            font-weight: bold;
-            margin: 20px 0 14px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            color: #00d2eb;
-            text-shadow: 0 0 8px rgba(0, 210, 235, 0.5);
+        .nav-arrow-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            border-color: #64748b;
+        }
+
+        .current-round-title {
+            font-size: 16px;
+            font-weight: 900;
+            color: #e2e800;
+            text-shadow: 0 0 8px rgba(226, 232, 0, 0.5);
         }
 
         /* كروت المباريات */
@@ -179,13 +185,6 @@
             font-weight: bold;
         }
 
-        .postponed-tag {
-            font-size: 11px;
-            color: #ff7b00;
-            margin-top: 3px;
-            font-weight: bold;
-        }
-
         /* ألوان حدود المباريات */
         .match-1 { border-right: 5px solid #e5121b; }
         .match-2 { border-right: 5px solid #e2e800; }
@@ -194,6 +193,18 @@
         .match-5 { border-right: 5px solid #00c836; }
 
         /* جدول ترتيب الفرق */
+        .section-header {
+            font-size: 19px;
+            font-weight: bold;
+            margin: 25px 0 14px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: #00d2eb;
+            text-shadow: 0 0 8px rgba(0, 210, 235, 0.5);
+        }
+
         .table-container {
             background: rgba(2, 5, 87, 0.8);
             backdrop-filter: blur(8px);
@@ -296,27 +307,31 @@
             <div class="sub-title">✨ أهم شيء الاستمتاع ✨</div>
         </div>
 
-        <!-- زر التنقل بين الجولات الثلاث -->
-        <div class="history-nav">
-            <button class="history-btn" onclick="nextRound()">
-                <span id="btnText">عرض الجولة 1 👈</span>
+        <!-- أسهم التنقل العلوية بيمين ويسار -->
+        <div class="rounds-navigation">
+            <!-- سهم فوق يمين للعودة للجولة السابقة -->
+            <button class="nav-arrow-btn" id="prevBtn" onclick="changeRound(-1)">
+                <span>👉 السابقة</span>
+            </button>
+
+            <span class="current-round-title" id="roundTitle">⚽ الجولة 3 ⚽</span>
+
+            <!-- سهم فوق يسار للتقدم للجولة القادمة -->
+            <button class="nav-arrow-btn" id="nextBtn" onclick="changeRound(1)" disabled>
+                <span>القادمة 👈</span>
             </button>
         </div>
 
-        <!-- قسم نتائج الجولة الثالثة (الحالية) -->
+        <!-- قسم نتائج الجولة الثالثة -->
         <div id="round3Section">
-            <div class="section-header">
-                <span>⚽ نتائج الجولة 3 (اليوم) ⚽</span>
-            </div>
-
             <div class="matches-container">
                 <div class="match-card match-1">
-                    <span class="player-name player-right">شوقي عبدالكريم</span>
+                    <span class="player-name player-right">أحمد عبدالكريم</span>
                     <div class="match-info">
-                        <span class="score">- - -</span>
-                        <span class="postponed-tag">مؤجلة ⏳</span>
+                        <span class="score">2 - 1</span>
+                        <span class="status-tag">انتهت</span>
                     </div>
-                    <span class="player-name player-left">أحمد عبدالكريم</span>
+                    <span class="player-name player-left">شوقي عبدالكريم</span>
                 </div>
 
                 <div class="match-card match-2">
@@ -331,8 +346,8 @@
                 <div class="match-card match-3">
                     <span class="player-name player-right">مزمل عبدالحفيظ</span>
                     <div class="match-info">
-                        <span class="score">- - -</span>
-                        <span class="postponed-tag">مؤجلة ⏳</span>
+                        <span class="score">8 - 1</span>
+                        <span class="status-tag">انتهت</span>
                     </div>
                     <span class="player-name player-left">قصي إسماعيل</span>
                 </div>
@@ -359,10 +374,6 @@
 
         <!-- قسم نتائج الجولة الثانية -->
         <div id="round2Section" class="hidden">
-            <div class="section-header">
-                <span>🔙 نتائج الجولة 2 🔙</span>
-            </div>
-
             <div class="matches-container">
                 <div class="match-card match-1">
                     <span class="player-name player-right">مزمل عبدالحفيظ</span>
@@ -413,10 +424,6 @@
 
         <!-- قسم نتائج الجولة الأولى -->
         <div id="round1Section" class="hidden">
-            <div class="section-header">
-                <span>🔙 نتائج الجولة 1 🔙</span>
-            </div>
-
             <div class="matches-container">
                 <div class="match-card match-1">
                     <span class="player-name player-right">احمد عبدالكريم</span>
@@ -465,7 +472,7 @@
             </div>
         </div>
 
-        <!-- قسم جدول الترتيب المعدل -->
+        <!-- قسم جدول الترتيب -->
         <div class="section-header">
             <span>🏆 جدول ترتيب الدوري 🏆</span>
         </div>
@@ -523,14 +530,23 @@
                     <tr>
                         <td class="rank">5</td>
                         <td class="team-name">احمد عبدالكريم</td>
-                        <td>2</td>
+                        <td>3</td>
+                        <td>9</td>
                         <td>7</td>
-                        <td>6</td>
-                        <td>+1</td>
-                        <td class="pts-col">3</td>
+                        <td>+2</td>
+                        <td class="pts-col">6</td>
                     </tr>
                     <tr>
                         <td class="rank">6</td>
+                        <td class="team-name">مزمل عبدالحفيظ</td>
+                        <td>3</td>
+                        <td>13</td>
+                        <td>10</td>
+                        <td>+3</td>
+                        <td class="pts-col">3</td>
+                    </tr>
+                    <tr>
+                        <td class="rank">7</td>
                         <td class="team-name">اسماعيل حسين</td>
                         <td>3</td>
                         <td>11</td>
@@ -539,22 +555,13 @@
                         <td class="pts-col">3</td>
                     </tr>
                     <tr>
-                        <td class="rank">7</td>
-                        <td class="team-name">شوقي عبدالكريم</td>
-                        <td>2</td>
-                        <td>4</td>
-                        <td>6</td>
-                        <td>-2</td>
-                        <td class="pts-col">3</td>
-                    </tr>
-                    <tr>
                         <td class="rank">8</td>
-                        <td class="team-name">مزمل عبدالحفيظ</td>
-                        <td>2</td>
+                        <td class="team-name">شوقي عبدالكريم</td>
+                        <td>3</td>
                         <td>5</td>
-                        <td>9</td>
-                        <td>-4</td>
-                        <td class="pts-col">0</td>
+                        <td>8</td>
+                        <td>-3</td>
+                        <td class="pts-col">3</td>
                     </tr>
                     <tr>
                         <td class="rank">9</td>
@@ -568,10 +575,10 @@
                     <tr>
                         <td class="rank">10</td>
                         <td class="team-name">قصي اسماعيل</td>
-                        <td>2</td>
-                        <td>4</td>
-                        <td>10</td>
-                        <td>-6</td>
+                        <td>3</td>
+                        <td>5</td>
+                        <td>18</td>
+                        <td>-13</td>
                         <td class="pts-col">0</td>
                     </tr>
                 </tbody>
@@ -586,34 +593,29 @@
 
     </div>
 
-    <!-- كود الجافاسكريبت للتبديل الدائري بين الجولات الثلاث -->
+    <!-- كود الجافاسكريبت للتحكم بالأسهم العلوية (يمين/يسار) -->
     <script>
         var currentRound = 3;
+        var maxRound = 3;
 
-        function nextRound() {
-            var r1 = document.getElementById("round1Section");
-            var r2 = document.getElementById("round2Section");
-            var r3 = document.getElementById("round3Section");
-            var btnText = document.getElementById("btnText");
+        function changeRound(step) {
+            var newRound = currentRound + step;
 
-            // إخفاء الكل
-            r1.classList.add("hidden");
-            r2.classList.add("hidden");
-            r3.classList.add("hidden");
+            if (newRound >= 1 && newRound <= maxRound) {
+                // إخفاء جميع الجولات
+                document.getElementById("round1Section").classList.add("hidden");
+                document.getElementById("round2Section").classList.add("hidden");
+                document.getElementById("round3Section").classList.add("hidden");
 
-            // التبديل الدوري
-            if (currentRound === 3) {
-                r2.classList.remove("hidden");
-                btnText.innerHTML = "عرض الجولة 1 👈";
-                currentRound = 2;
-            } else if (currentRound === 2) {
-                r1.classList.remove("hidden");
-                btnText.innerHTML = "عرض الجولة 3 (اليوم) 👈";
-                currentRound = 1;
-            } else if (currentRound === 1) {
-                r3.classList.remove("hidden");
-                btnText.innerHTML = "عرض الجولة 2 👈";
-                currentRound = 3;
+                // إظهار الجولة المطلوبة
+                document.getElementById("round" + newRound + "Section").classList.remove("hidden");
+                
+                currentRound = newRound;
+                document.getElementById("roundTitle").innerHTML = "⚽ الجولة " + currentRound + " ⚽";
+
+                // تحديث حالة الأزرار (تفعيل/تعطيل)
+                document.getElementById("prevBtn").disabled = (currentRound === 1);
+                document.getElementById("nextBtn").disabled = (currentRound === maxRound);
             }
         }
     </script>
