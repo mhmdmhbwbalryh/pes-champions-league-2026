@@ -520,20 +520,20 @@
                     </tr>
                     <tr>
                         <td class="rank">4</td>
-                        <td class="team-name">اسامة بلولة</td>
-                        <td>3</td>
-                        <td>11</td>
-                        <td>10</td>
-                        <td>+1</td>
-                        <td class="pts-col">6</td>
-                    </tr>
-                    <tr>
-                        <td class="rank">5</td>
                         <td class="team-name">احمد عبدالكريم</td>
                         <td>3</td>
                         <td>9</td>
                         <td>7</td>
                         <td>+2</td>
+                        <td class="pts-col">6</td>
+                    </tr>
+                    <tr>
+                        <td class="rank">5</td>
+                        <td class="team-name">اسامة بلولة</td>
+                        <td>3</td>
+                        <td>11</td>
+                        <td>10</td>
+                        <td>+1</td>
                         <td class="pts-col">6</td>
                     </tr>
                     <tr>
@@ -613,7 +613,7 @@
                 currentRound = newRound;
                 document.getElementById("roundTitle").innerHTML = "⚽ الجولة " + currentRound + " ⚽";
 
-                // تحديث حالة الأزرار (تفعيل/تعطيل)
+                // تحديث حالة الأزرار
                 document.getElementById("prevBtn").disabled = (currentRound === 1);
                 document.getElementById("nextBtn").disabled = (currentRound === maxRound);
             }
@@ -622,4 +622,3 @@
 
 </body>
 </html>
-
